@@ -18,44 +18,52 @@ namespace TencentCloud\Trocket\V20230308\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeTopicList请求参数结构体
+ * DescribeConsumerClientList请求参数结构体
  *
- * @method string getInstanceId() 获取腾讯云 RocketMQ 实例 ID，从 [DescribeInstanceList](https://cloud.tencent.com/document/api/1493/96028) 接口或控制台获得。
- * @method void setInstanceId(string $InstanceId) 设置腾讯云 RocketMQ 实例 ID，从 [DescribeInstanceList](https://cloud.tencent.com/document/api/1493/96028) 接口或控制台获得。
- * @method array getFilters() 获取过滤查询条件列表，请在引用此参数的API说明中了解使用方法。
- * @method void setFilters(array $Filters) 设置过滤查询条件列表，请在引用此参数的API说明中了解使用方法。
- * @method integer getOffset() 获取查询起始位置，默认为0。
- * @method void setOffset(integer $Offset) 设置查询起始位置，默认为0。
- * @method integer getLimit() 获取查询结果限制数量，默认20。
- * @method void setLimit(integer $Limit) 设置查询结果限制数量，默认20。
+ * @method string getInstanceId() 获取集群ID
+ * @method void setInstanceId(string $InstanceId) 设置集群ID
+ * @method string getConsumerGroup() 获取消费组名称
+ * @method void setConsumerGroup(string $ConsumerGroup) 设置消费组名称
+ * @method array getFilters() 获取查询条件列表
+ * @method void setFilters(array $Filters) 设置查询条件列表
+ * @method integer getOffset() 获取查询起始位置
+ * @method void setOffset(integer $Offset) 设置查询起始位置
+ * @method integer getLimit() 获取查询结果限制数量
+ * @method void setLimit(integer $Limit) 设置查询结果限制数量
  */
-class DescribeTopicListRequest extends AbstractModel
+class DescribeConsumerClientListRequest extends AbstractModel
 {
     /**
-     * @var string 腾讯云 RocketMQ 实例 ID，从 [DescribeInstanceList](https://cloud.tencent.com/document/api/1493/96028) 接口或控制台获得。
+     * @var string 集群ID
      */
     public $InstanceId;
 
     /**
-     * @var array 过滤查询条件列表，请在引用此参数的API说明中了解使用方法。
+     * @var string 消费组名称
+     */
+    public $ConsumerGroup;
+
+    /**
+     * @var array 查询条件列表
      */
     public $Filters;
 
     /**
-     * @var integer 查询起始位置，默认为0。
+     * @var integer 查询起始位置
      */
     public $Offset;
 
     /**
-     * @var integer 查询结果限制数量，默认20。
+     * @var integer 查询结果限制数量
      */
     public $Limit;
 
     /**
-     * @param string $InstanceId 腾讯云 RocketMQ 实例 ID，从 [DescribeInstanceList](https://cloud.tencent.com/document/api/1493/96028) 接口或控制台获得。
-     * @param array $Filters 过滤查询条件列表，请在引用此参数的API说明中了解使用方法。
-     * @param integer $Offset 查询起始位置，默认为0。
-     * @param integer $Limit 查询结果限制数量，默认20。
+     * @param string $InstanceId 集群ID
+     * @param string $ConsumerGroup 消费组名称
+     * @param array $Filters 查询条件列表
+     * @param integer $Offset 查询起始位置
+     * @param integer $Limit 查询结果限制数量
      */
     function __construct()
     {
@@ -72,6 +80,10 @@ class DescribeTopicListRequest extends AbstractModel
         }
         if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
             $this->InstanceId = $param["InstanceId"];
+        }
+
+        if (array_key_exists("ConsumerGroup",$param) and $param["ConsumerGroup"] !== null) {
+            $this->ConsumerGroup = $param["ConsumerGroup"];
         }
 
         if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {

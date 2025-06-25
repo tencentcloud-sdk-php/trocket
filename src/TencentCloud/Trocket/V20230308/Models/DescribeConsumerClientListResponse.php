@@ -18,27 +18,24 @@ namespace TencentCloud\Trocket\V20230308\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMessageTrace返回参数结构体
+ * DescribeConsumerClientList返回参数结构体
  *
- * @method string getShowTopicName() 获取主题名称
- * @method void setShowTopicName(string $ShowTopicName) 设置主题名称
- * @method array getData() 获取轨迹详情
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setData(array $Data) 设置轨迹详情
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getTotalCount() 获取查询总数
+ * @method void setTotalCount(integer $TotalCount) 设置查询总数
+ * @method array getData() 获取消费客户端
+ * @method void setData(array $Data) 设置消费客户端
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeMessageTraceResponse extends AbstractModel
+class DescribeConsumerClientListResponse extends AbstractModel
 {
     /**
-     * @var string 主题名称
+     * @var integer 查询总数
      */
-    public $ShowTopicName;
+    public $TotalCount;
 
     /**
-     * @var array 轨迹详情
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array 消费客户端
      */
     public $Data;
 
@@ -48,9 +45,8 @@ class DescribeMessageTraceResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $ShowTopicName 主题名称
-     * @param array $Data 轨迹详情
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $TotalCount 查询总数
+     * @param array $Data 消费客户端
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -66,14 +62,14 @@ class DescribeMessageTraceResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ShowTopicName",$param) and $param["ShowTopicName"] !== null) {
-            $this->ShowTopicName = $param["ShowTopicName"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("Data",$param) and $param["Data"] !== null) {
             $this->Data = [];
             foreach ($param["Data"] as $key => $value){
-                $obj = new MessageTraceItem();
+                $obj = new ConsumerClient();
                 $obj->deserialize($value);
                 array_push($this->Data, $obj);
             }
